@@ -1,14 +1,21 @@
 .task {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 6px;
   border: 1px solid black;
 }
 
-.task-info {
+.task-header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.task-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 220px;
+  padding-left: 10px;
+  border-left: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 .task-name {
@@ -16,6 +23,13 @@
   font-weight: bold;
 }
 
-.task-due-date {
-  margin-top: 10px;
+.task-info {
+  margin-bottom: 10px;
+}
+
+.task-info >:not(:first-child)::before {
+  content: '';
+  border-left: 1px solid rgba(0, 0, 0, 0.3);
+  height: 100%;
+  margin-inline: 10px;
 }

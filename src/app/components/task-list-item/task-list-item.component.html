@@ -1,11 +1,24 @@
 <li class="task">
-  <span class="task-info">
+  <div class="task-header">
     <span class="task-name">{{task().title}}</span>
-    <p class="task-description">{{task().description}}</p>
-    <span class="task-due-date">{{task().dueDate.toLocaleDateString()}}</span>
-  </span>
-  <span class="task-actions">
-    <button>Concluido</button>
-    <button>Remover</button>
-  </span>
+
+    <span class="task-actions">
+      <button (click)="toggleCompleted()">
+        <fa-icon [icon]="task().completed ? faXmark : faCheck" /> 
+        {{task().completed ? 'Marcar "Não Feito"' : 'Marcar "Feito"'}}
+      </button>
+      <button>
+        <fa-icon [icon]="faTrash" />
+        Remover
+      </button>
+    </span>
+  </div>
+
+  <div class="task-info">
+    <span class="task-due-date">Data de entrega: {{task().dueDate.toLocaleDateString()}}</span>
+    <span class="task-priority">Prioridade: {{priority()}}</span>
+    <span class="task-priority">Feito: {{task().completed ? 'Sim' : 'Não'}}</span>
+  </div>
+
+  <p class="task-description">{{task().description}}</p>
 </li>
