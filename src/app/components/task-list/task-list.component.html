@@ -1,9 +1,23 @@
-@if (tasks().length === 0) {
-  <span>Sem tarefas</span>
-} @else {
-  <ul class="task-list">
-    @for (task of tasks(); track $index) {
-      <app-task-list-item [task]="task"></app-task-list-item>
+<div class="task-list-container">
+  @if (tasks.length === 0) {
+    <div class="no-tasks">Sem tarefas</div>
+  } @else {
+    <ul class="task-list">
+      @for (task of tasks; track $index) {
+        <app-task-list-item [task]="task"></app-task-list-item>
+      }
+    </ul>
+  }
+
+  <div class="create-task-container">
+    @if (isViewMode) {
+      <button class="add-task-btn" (click)="goToTaskCreation()">
+        Criar
+        <fa-icon [icon]="faPlus" class="add-icon" />
+        tarefa
+      </button>
+    } @else {
+      <app-create-task (taskCancelled)="goToViewMode()" (taskCreated)="createTask($event)" />
     }
-  </ul>
-}
+  </div>
+</div>

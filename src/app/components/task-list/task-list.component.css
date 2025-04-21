@@ -1,8 +1,40 @@
+.task-list-container {
+  width: 80%;
+  max-width: 800px;
+  margin-inline: auto;
+}
+
+.no-tasks {
+  text-align: center;
+}
+
 .task-list {
   display: flex;
   flex-direction: column;
   row-gap: 10px;
-  width: 80%;
-  max-width: 800px;
+}
+
+.create-task-container {
+  margin-top: 10px;
+}
+
+.add-task-btn {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  letter-spacing: 3px;
+  font-size: 1.5rem;
   margin-inline: auto;
+}
+
+.add-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 0.8em;
+  aspect-ratio: 1 / 1;
+  padding: 2px;
+  border-radius: 100%;
+  border: 1px solid black;
 }

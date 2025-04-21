@@ -3,8 +3,8 @@ export interface Task {
   description: string;
   completed: boolean;
   createDate: Date;
-  dueDate: Date;
+  dueDate: Date | null;
   priority: Priority;
 }
 
-export type Priority = 'low' | 'medium' | 'high';
+export type Priority = 'not defined' | 'low' | 'medium' | 'high';

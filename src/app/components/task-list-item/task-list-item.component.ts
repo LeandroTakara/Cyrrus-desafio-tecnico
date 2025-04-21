@@ -1,7 +1,8 @@
-import { Component, computed, input } from '@angular/core';
+import { Component, computed, inject, input } from '@angular/core';
 import { Task } from '../../types/task';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faXmark, faCheck, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { TaskService } from '../../services/task.service';
 
 @Component({
   selector: 'app-task-list-item',
@@ -10,6 +11,7 @@ import { faXmark, faCheck, faTrash } from '@fortawesome/free-solid-svg-icons';
   styleUrl: './task-list-item.component.css'
 })
 export class TaskListItemComponent {
+  taskService = inject(TaskService);
   task = input.required<Task>();
 
   // icons
@@ -18,12 +20,17 @@ export class TaskListItemComponent {
   faTrash = faTrash;
 
   priority = computed(() => {
-    if (this.task().priority === 'low') return 'baixa';
-    if (this.task().priority === 'medium') return 'média';
-    return 'alta';
+    if (this.task().priority === 'low') return 'Baixa';
+    else if (this.task().priority === 'medium') return 'Média';
+    else if (this.task().priority === 'high') return 'Alta';
+    return 'Não definida';
   })
 
   toggleCompleted() {
     this.task().completed = !this.task().completed;
+  }
+
+  removeTask() {
+    this.taskService.removeTask(this.task());
   }
 }
