@@ -1,0 +1,9 @@
+@if (tasks().length === 0) {
+  <span>Sem tarefas</span>
+} @else {
+  <ul class="task-list">
+    @for (task of tasks(); track $index) {
+      <app-task-list-item [task]="task"></app-task-list-item>
+    }
+  </ul>
+}

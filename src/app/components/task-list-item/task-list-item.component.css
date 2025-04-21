@@ -1,0 +1,21 @@
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px;
+  border: 1px solid black;
+}
+
+.task-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.task-due-date {
+  margin-top: 10px;
+}
