@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Task } from '../types/task';
+import { SubTask, Task } from '../types/task';
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +19,13 @@ export class TaskService {
 
   removeTask(task: Task) {
     this.tasks.splice(this.tasks.indexOf(task), 1);
+  }
+
+  createSubtask(task: Task, subtask: SubTask) {
+    task.subtasks.push(subtask);
+  }
+
+  removeSubtask(task: Task, subtask: SubTask) {
+    task.subtasks.splice(task.subtasks.indexOf(subtask), 1);
   }
 }

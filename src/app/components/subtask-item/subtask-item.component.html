@@ -1,0 +1,13 @@
+<li class="subtask">
+  <label class="subtask-checkbox-label">
+    <input type="checkbox" [checked]="subtask().completed" (change)="toggleCompleted()" />
+    <fa-icon [icon]="subtask().completed ? faCheck : faXmark" />
+  </label>
+
+  <span class="subtask-name">{{subtask().title}}</span>
+
+  <button (click)="removeSubtask()">
+    <fa-icon [icon]="faTrash" />
+    Remover
+  </button>
+</li>

@@ -45,6 +45,7 @@ export class CreateTaskComponent {
       priority: this.taskCreationForm.value.priority,
       completed: this.taskCreationForm.value.completed,
       createDate: new Date(),
+      subtasks: [],
     } as Task);
   }
 

@@ -1,0 +1,20 @@
+<form class="form" [formGroup]="subtaskCreationForm" (submit)="createSubtask()">
+  <label class="text-label">
+    <span class="text-label-name">Nome</span>
+    <input class="text-input" type="text" placeholder="" formControlName="title" />
+  </label>
+
+  @if (subtaskCreationForm.controls.title.invalid && !subtaskCreationForm.controls.title.dirty) {
+    <span class="error-message">Nome inválido</span>
+  }
+
+  <label class="flex-label">
+    <input type="checkbox" formControlName="completed" />
+    <span>Feito</span>
+  </label>
+
+  <div class="buttons">
+    <button class="cancel-btn" (click)="cancelSubtaskCreation()">Cancelar</button>
+    <button class="create-btn">Criar</button>
+  </div>
+</form>
