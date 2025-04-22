@@ -12,7 +12,9 @@ export class TaskService {
     searchText: '',
   }
 
-  constructor() {}
+  constructor() {
+    this.tasks = this.#loadTasks();
+  }
 
   getTasks(): Task[] {
     return this.tasks;
@@ -20,18 +22,22 @@ export class TaskService {
 
   addTask(task: Task) {
     this.tasks.push(task);
+    this.#saveTasks();
   }
 
   removeTask(task: Task) {
     this.tasks.splice(this.tasks.indexOf(task), 1);
+    this.#saveTasks();
   }
 
-  createSubtask(task: Task, subtask: SubTask) {
+  addSubtask(task: Task, subtask: SubTask) {
     task.subtasks.push(subtask);
+    this.#saveTasks();
   }
 
   removeSubtask(task: Task, subtask: SubTask) {
     task.subtasks.splice(task.subtasks.indexOf(subtask), 1);
+    this.#saveTasks();
   }
 
   changeFilterMode(filterMode: FilterMode) {
@@ -54,5 +60,14 @@ export class TaskService {
     }
 
     return tasks;
+  }
+
+  #saveTasks() {
+    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+  }
+
+  #loadTasks() {
+    const tasksSaved = localStorage.getItem('tasks');
+    return tasksSaved ? JSON.parse(tasksSaved) : [];
   }
 }

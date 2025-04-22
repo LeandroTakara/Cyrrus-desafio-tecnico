@@ -48,7 +48,7 @@ export class TaskListItemComponent {
   }
 
   createSubtask(subtask: SubTask) {
-    this.taskService.createSubtask(this.task(), subtask);
+    this.taskService.addSubtask(this.task(), subtask);
     this.goToViewMode();
   }
 }
