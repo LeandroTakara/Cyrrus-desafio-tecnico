@@ -1,7 +1,7 @@
 import { Component, computed, inject, input } from '@angular/core';
 import { SubTask, Task } from '../../types/task';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faXmark, faCheck, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faXmark, faCheck, faTrash, faCalendarXmark } from '@fortawesome/free-solid-svg-icons';
 import { TaskService } from '../../services/task.service';
 import { SubtaskItemComponent } from '../subtask-item/subtask-item.component';
 import { CreateSubtaskComponent } from '../create-subtask/create-subtask.component';
@@ -21,6 +21,7 @@ export class TaskListItemComponent {
   faXmark = faXmark;
   faCheck = faCheck;
   faTrash = faTrash;
+  faCalendarXmark = faCalendarXmark;
 
   priority = computed(() => {
     if (this.task().priority === 'low') return 'Baixa';
@@ -31,6 +32,28 @@ export class TaskListItemComponent {
 
   isViewMode = true;
 
+  get overDueDate() {
+    const dueISODate = this.task().dueDate;
+    if (!dueISODate) return null;
+
+    const [year, month, day] = dueISODate.split('-').map(Number);
+
+    const dueDate = new Date(year, month - 1, day);
+
+    return dueDate;
+  }
+
+  get isTaskLate() {
+    const dueDate = this.overDueDate;
+
+    if (!dueDate) return false;
+
+    const date = new Date();
+    date.setHours(0, 0, 0, 0);
+
+    return dueDate < date;
+  }
+
   goToSubtaskCreation() {
     this.isViewMode = false;
   }
@@ -40,7 +63,7 @@ export class TaskListItemComponent {
   }
 
   toggleCompleted() {
-    this.task().completed = !this.task().completed;
+    this.taskService.markAsCompleted(this.task());
   }
 
   removeTask() {

@@ -2,14 +2,14 @@
   <div class="task-content">
     <div class="task-header items">
       <span class="task-name">
-        <fa-icon
-          [ngClass]="{
-            'front-icon': true,
-            'completed-icon': task().completed,
-            'not-completed-icon': !task().completed,
-          }"
-          [icon]="task().completed ? faCheck : faXmark"
-        />
+        @if (task().completed) {
+          <fa-icon class="front-icon completed-icon" [icon]="faCheck" />
+        } @else if (isTaskLate) {
+          <fa-icon class="calendar-icon" [icon]="faCalendarXmark" />
+        } @else {
+          <fa-icon class="front-icon not-completed-icon" [icon]="faXmark" />
+        }
+
         {{task().title}}
       </span>
 
@@ -33,9 +33,10 @@
     </div>
 
     <div class="task-info items-divisor">
-      <span class="task-due-date">Data de entrega: {{task().dueDate?.toLocaleDateString() ?? 'Não definida'}}</span>
-      <span class="task-priority">Prioridade: {{priority()}}</span>
-      <span class="task-priority">Feito: {{task().completed ? 'Sim' : 'Não'}}</span>
+      <span>Data de entrega: {{overDueDate?.toLocaleDateString() ?? 'Não definida'}}</span>
+      <span>Prioridade: {{priority()}}</span>
+      <span>Feito: {{task().completed ? 'Sim' : 'Não'}}</span>
+      <span>Atrasado: {{isTaskLate ? 'Sim' : 'Não'}}</span>
     </div>
 
     <p class="task-description">{{task().description}}</p>

@@ -22,7 +22,7 @@ export class SubtaskItemComponent {
   faTrash = faTrash;
 
   toggleCompleted() {
-    this.subtask().completed = !this.subtask().completed;
+    this.taskService.markAsCompleted(this.subtask());
   }
 
   removeSubtask() {

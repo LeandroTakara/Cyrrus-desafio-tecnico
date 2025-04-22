@@ -20,6 +20,15 @@
   font-weight: bold;
 }
 
+.icon-wrapper {
+  position: relative;
+}
+
+.calendar-icon {
+  font-size: 22px;
+  color: var(--calendarXMark-color);
+}
+
 .task-actions {
   display: flex;
   justify-content: space-between;

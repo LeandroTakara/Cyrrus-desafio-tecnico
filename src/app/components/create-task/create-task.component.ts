@@ -38,10 +38,11 @@ export class CreateTaskComponent {
       return;
     }
 
+
     this.taskCreated.emit({
       title: this.taskCreationForm.value.title,
       description: this.taskCreationForm.value.description,
-      dueDate: this.taskCreationForm.value.dueDate ? new Date(this.taskCreationForm.value.dueDate) : null,
+      dueDate: this.taskCreationForm.value.dueDate ?? null,
       priority: this.taskCreationForm.value.priority,
       completed: this.taskCreationForm.value.completed,
       createDate: new Date(),

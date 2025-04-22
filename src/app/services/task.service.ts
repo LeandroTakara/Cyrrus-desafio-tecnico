@@ -30,6 +30,11 @@ export class TaskService {
     this.#saveTasks();
   }
 
+  markAsCompleted(task: Task | SubTask) {
+    task.completed = !task.completed;
+    this.#saveTasks();
+  }
+
   addSubtask(task: Task, subtask: SubTask) {
     task.subtasks.push(subtask);
     this.#saveTasks();
