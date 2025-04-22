@@ -1,0 +1,18 @@
+<div class="filter-container">
+  <input class="input-search-task" type="text" placeholder="Filtrar por título" (input)="searchTask($event)" />
+
+  <div class="form-group">
+    <label>
+      <input type="radio" name="filterMode" checked (change)="changeFilterMode('all')">
+      <span>Todas</span>
+    </label>
+    <label>
+      <input type="radio" name="filterMode" (change)="changeFilterMode('completed')">
+      <span>Feitas</span>
+    </label>
+    <label>
+      <input type="radio" name="filterMode" (change)="changeFilterMode('not-completed')">
+      <span>Não feitas</span>
+    </label>
+  </div>
+</div>

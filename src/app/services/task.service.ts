@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { SubTask, Task } from '../types/task';
+import { FilterTask } from '../types/filter';
 
 @Injectable({
   providedIn: 'root'
@@ -27,5 +28,19 @@ export class TaskService {
 
   removeSubtask(task: Task, subtask: SubTask) {
     task.subtasks.splice(task.subtasks.indexOf(subtask), 1);
+  }
+
+  filterTasks(filterTask: FilterTask): Task[] {
+    let tasks = [];
+
+    if (filterTask.filterMode === 'completed') tasks = this.tasks.filter(task => task.completed);
+    else if (filterTask.filterMode === 'not-completed') tasks = this.tasks.filter(task => !task.completed);
+    else tasks = this.tasks
+
+    if (filterTask.searchText) {
+      tasks = tasks.filter(task => task.title.toLowerCase().includes(filterTask.searchText.toLowerCase()));
+    }
+
+    return tasks;
   }
 }

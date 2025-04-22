@@ -1,9 +1,17 @@
 <div class="task-list-container">
-  @if (tasks.length === 0) {
+  <app-filter-task (filterChange)="changeFilterMode($event)" (search)="searchTask($event)" />
+
+  <div class="tasks-info">
+    <span>Feitas: {{tasksCompleted}}</span>
+    <span>Não feitas: {{tasksNotCompleted}}</span>
+    <span>Total: {{totalTasks}}</span>
+  </div>
+
+  @if (filteredTasks.length === 0) {
     <div class="no-tasks">Sem tarefas</div>
   } @else {
     <ul class="task-list">
-      @for (task of tasks; track $index) {
+      @for (task of filteredTasks; track $index) {
         <app-task-list-item [task]="task"></app-task-list-item>
       }
     </ul>
