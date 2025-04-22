@@ -3,10 +3,11 @@ import { SubTask, Task } from '../../types/task';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faXmark, faCheck, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { TaskService } from '../../services/task.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-subtask-item',
-  imports: [FontAwesomeModule],
+  imports: [FontAwesomeModule, CommonModule],
   templateUrl: './subtask-item.component.html',
   styleUrl: './subtask-item.component.css'
 })

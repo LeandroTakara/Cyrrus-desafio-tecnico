@@ -5,10 +5,11 @@ import { faXmark, faCheck, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { TaskService } from '../../services/task.service';
 import { SubtaskItemComponent } from '../subtask-item/subtask-item.component';
 import { CreateSubtaskComponent } from '../create-subtask/create-subtask.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-task-list-item',
-  imports: [FontAwesomeModule, SubtaskItemComponent, CreateSubtaskComponent],
+  imports: [FontAwesomeModule, SubtaskItemComponent, CreateSubtaskComponent, CommonModule],
   templateUrl: './task-list-item.component.html',
   styleUrl: './task-list-item.component.css'
 })

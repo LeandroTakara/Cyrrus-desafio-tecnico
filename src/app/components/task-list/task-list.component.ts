@@ -24,26 +24,6 @@ export class TaskListComponent {
     return this.taskService.getFilteredTasks();
   }
 
-  get tasksCompleted() {
-    let count = 0;
-    this.taskService.getTasks().forEach(task => {
-      if (task.completed) count++;
-    });
-    return count;
-  }
-
-  get tasksNotCompleted() {
-    let count = 0;
-    this.taskService.getTasks().forEach(task => {
-      if (!task.completed) count++;
-    });
-    return count;
-  }
-
-  get totalTasks() {
-    return this.taskService.getTasks().length;
-  }
-
   goToTaskCreation() {
     this.isViewMode = false;
   }

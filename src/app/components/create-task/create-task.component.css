@@ -3,8 +3,10 @@
   flex-direction: column;
   gap: 10px;
   width: 100%;
-  max-width: 500px;
+  padding: 20px;
+  border: 1px solid black;
   margin-inline: auto;
+  background-color: white;
 }
 
 .text-label {
@@ -61,12 +63,24 @@
   width: fit-content;
   padding: 10px;
   color: white;
-  background-color: #bd2b2b;
+  border-radius: 10px;
+  background-color: var(--btn-color2);
+  transition: background-color 0.1s;
+
+  &:hover {
+    background-color: var(--btn-color2-hover);
+  }
 }
 
 .create-btn {
   width: fit-content;
   padding: 10px;
   color: white;
-  background-color: #007bff;
+  border-radius: 10px;
+  background-color: var(--btn-color1);
+  transition: background-color 0.1s;
+
+  &:hover {
+    background-color: var(--btn-color1-hover);
+  }
 }

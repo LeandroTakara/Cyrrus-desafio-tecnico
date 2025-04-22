@@ -1,0 +1,20 @@
+.tasks-info {
+  padding-bottom: 30px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid black;
+}
+
+.tasks-count {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  margin-inline: auto;
+  margin: 0 auto 20px;
+  padding: 0 10px 5px;
+}
+
+.task-info-span {
+  font-weight: bold;
+  margin-right: 10px;
+}

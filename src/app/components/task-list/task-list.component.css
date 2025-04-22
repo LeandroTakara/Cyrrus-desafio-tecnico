@@ -1,19 +1,10 @@
 .task-list-container {
-  width: 80%;
-  max-width: 800px;
+  width: 90%;
   margin-inline: auto;
 }
 
 .no-tasks {
   text-align: center;
-}
-
-.tasks-info {
-  display: flex;
-  column-gap: 20px;
-  border-bottom: 1px solid black;
-  margin-bottom: 20px;
-  padding-bottom: 5px;
 }
 
 .task-list {
@@ -23,16 +14,25 @@
 }
 
 .create-task-container {
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
-.add-task-btn {
+.create-task-btn {
   display: flex;
   align-items: center;
-  column-gap: 10px;
+  column-gap: 6px;
+  padding: 4px 12px;
+  margin-inline: auto;
+  border-radius: 20px;
   letter-spacing: 3px;
   font-size: 1.5rem;
-  margin-inline: auto;
+  color: white;
+  background-color: var(--btn-color1);
+  transition: background-color 0.1s;
+
+  &:hover {
+    background-color: var(--btn-color1-hover);
+  }
 }
 
 .add-icon {
@@ -42,7 +42,7 @@
   height: 100%;
   font-size: 0.8em;
   aspect-ratio: 1 / 1;
-  padding: 2px;
+  padding: 4px;
   border-radius: 100%;
-  border: 1px solid black;
+  border: 3px solid rgb(255, 255, 255);
 }

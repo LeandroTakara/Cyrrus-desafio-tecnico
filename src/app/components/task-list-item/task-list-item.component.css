@@ -1,6 +1,8 @@
 .task-content {
-  padding: 6px;
+  padding: 4px 8px;
   border: 1px solid black;
+  background-color: white;
+  border-radius: 7px;
 }
 
 .task-header {
@@ -9,13 +11,8 @@
   width: 100%;
 }
 
-.task-actions {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 220px;
-  padding-left: 10px;
-  border-left: 1px solid rgba(0, 0, 0, 0.3);
+.front-icon {
+  font-size: 20px;
 }
 
 .task-name {
@@ -23,21 +20,58 @@
   font-weight: bold;
 }
 
+.task-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 250px;
+  padding-left: 10px;
+  border-left: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.task-btn {
+  padding-inline: 6px;
+}
+.task-btn:hover {
+  background-color: rgb(240, 240, 240);
+}
+
+.small-icon {
+  font-size: 16px;
+}
+
 .task-info {
   margin-bottom: 10px;
 }
 
-.task-info >:not(:first-child)::before {
-  content: '';
-  border-left: 1px solid rgba(0, 0, 0, 0.3);
-  height: 100%;
-  margin-inline: 10px;
-}
-
-.subtasks {
+.subtask-list {
   width: 90%;
   padding: 6px;
   margin-inline: auto;
   border: 1px solid black;
   border-top: none;
+  border-radius: 0 0 7px 7px;
+  background-color: white;
+}
+
+.create-subtask-container {
+  margin-top: 5px;
+}
+
+.create-subtask-btn {
+  display: flex;
+  align-items: center;
+  column-gap: 6px;
+  padding: 4px 12px;
+  margin-inline: auto;
+  border-radius: 20px;
+  letter-spacing: 3px;
+  font-size: 1rem;
+  color: white;
+  background-color: var(--btn-color1);
+  transition: background-color 0.1s;
+
+  &:hover {
+    background-color: var(--btn-color1-hover);
+  }
 }

@@ -1,0 +1,26 @@
+<div class="tasks-info">
+  <div class="tasks-count">
+    <div>
+      <span class="task-info-span">Atual:</span>
+  
+      <span class="items-divisor">
+        <span>Feitas: {{countFilteredTasksCompleted}}</span>
+        <span>Não feitas: {{countFilteredTasksNotCompleted}}</span>
+        <span>Total: {{countFilteredTasks}}</span>
+      </span>
+    </div>
+  
+    <div>
+      <span class="task-info-span">Geral:</span>
+  
+      <span class="items-divisor">
+        <span>Feitas: {{countTotalTasksCompleted}}</span>
+        <span>Não feitas: {{countTotalTasksNotCompleted}}</span>
+        <span>Total: {{countTotalTasks}}</span>
+      </span>
+    </div>
+  </div>
+
+  <app-filter-task />
+</div>
+
