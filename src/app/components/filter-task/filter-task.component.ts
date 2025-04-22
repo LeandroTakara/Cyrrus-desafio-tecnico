@@ -1,5 +1,6 @@
-import { Component, output } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FilterMode } from '../../types/filter';
+import { TaskService } from '../../services/task.service';
 
 @Component({
   selector: 'app-filter-task',
@@ -8,14 +9,13 @@ import { FilterMode } from '../../types/filter';
   styleUrl: './filter-task.component.css'
 })
 export class FilterTaskComponent {
-  filterChange = output<FilterMode>();
-  search = output<string>();
+  taskService = inject(TaskService);
 
   changeFilterMode(mode: FilterMode) {
-    this.filterChange.emit(mode);
+    this.taskService.changeFilterMode(mode);
   }
 
-  searchTask(input: Event) {
-    this.search.emit((input.target as HTMLInputElement).value);
+  changeSearchTask(input: Event) {
+    this.taskService.changeSearchText((input.target as HTMLInputElement).value);
   }
 }

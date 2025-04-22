@@ -5,28 +5,23 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CreateTaskComponent } from '../create-task/create-task.component';
 import { TaskService } from '../../services/task.service';
 import { Task } from '../../types/task';
-import { FilterMode, FilterTask } from '../../types/filter';
-import { FilterTaskComponent } from "../filter-task/filter-task.component";
+import { FilterMode } from '../../types/filter';
 
 @Component({
   selector: 'app-task-list',
-  imports: [TaskListItemComponent, FontAwesomeModule, CreateTaskComponent, FilterTaskComponent],
+  imports: [TaskListItemComponent, FontAwesomeModule, CreateTaskComponent],
   templateUrl: './task-list.component.html',
   styleUrl: './task-list.component.css'
 })
 export class TaskListComponent {
   taskService = inject(TaskService)
-  filterTask: FilterTask = {
-    filterMode: 'all',
-    searchText: '',
-  }
   isViewMode = true;
 
   // icons
   faPlus = faPlus
 
   get filteredTasks() {
-    return this.taskService.filterTasks(this.filterTask);
+    return this.taskService.getFilteredTasks();
   }
 
   get tasksCompleted() {
@@ -47,14 +42,6 @@ export class TaskListComponent {
 
   get totalTasks() {
     return this.taskService.getTasks().length;
-  }
-
-  changeFilterMode(filterMode: FilterMode) {
-    this.filterTask.filterMode = filterMode;
-  }
-
-  searchTask(text: string) {
-    this.filterTask.searchText = text;
   }
 
   goToTaskCreation() {

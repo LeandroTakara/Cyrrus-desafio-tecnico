@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
 import { SubTask, Task } from '../types/task';
-import { FilterTask } from '../types/filter';
+import { FilterMode, FilterTask } from '../types/filter';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
   private tasks: Task[] = [];
+  private filterTask: FilterTask = {
+    filterMode: 'all',
+    searchText: '',
+  }
 
   constructor() {}
 
@@ -30,15 +34,23 @@ export class TaskService {
     task.subtasks.splice(task.subtasks.indexOf(subtask), 1);
   }
 
-  filterTasks(filterTask: FilterTask): Task[] {
-    let tasks = [];
+  changeFilterMode(filterMode: FilterMode) {
+    this.filterTask.filterMode = filterMode;
+  }
 
-    if (filterTask.filterMode === 'completed') tasks = this.tasks.filter(task => task.completed);
-    else if (filterTask.filterMode === 'not-completed') tasks = this.tasks.filter(task => !task.completed);
+  changeSearchText(searchText: string) {
+    this.filterTask.searchText = searchText;
+  }
+
+  getFilteredTasks() {
+    let tasks: Task[] = [];
+
+    if (this.filterTask.filterMode === 'completed') tasks = this.tasks.filter(task => task.completed);
+    else if (this.filterTask.filterMode === 'not-completed') tasks = this.tasks.filter(task => !task.completed);
     else tasks = this.tasks
 
-    if (filterTask.searchText) {
-      tasks = tasks.filter(task => task.title.toLowerCase().includes(filterTask.searchText.toLowerCase()));
+    if (this.filterTask.searchText) {
+      tasks = tasks.filter(task => task.title.toLowerCase().includes(this.filterTask.searchText.toLowerCase()));
     }
 
     return tasks;
