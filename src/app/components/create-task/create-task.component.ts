@@ -38,7 +38,6 @@ export class CreateTaskComponent {
       return;
     }
 
-
     this.taskCreated.emit({
       title: this.taskCreationForm.value.title,
       description: this.taskCreationForm.value.description,

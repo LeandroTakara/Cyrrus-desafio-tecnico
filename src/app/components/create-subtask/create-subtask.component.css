@@ -73,3 +73,8 @@
     background-color: var(--btn-color1-hover);
   }
 }
+
+.error-message {
+  color: red;
+  font-size: 0.8rem;
+}
