@@ -57,3 +57,25 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## Perguntas
+
+1. Qual foi sua lógica para estruturar o projeto?
+
+Primeiramente, fiz alguns esboços de como deveria ficar a interface para me guiar, após isso pensei em dividir o projeto em componentes principais, como, por exemplo, ```task-list``` e ```create-task``` e, por fim, após pensar muito, escolhi usar um Service para controlar e centralizar a lógica das tarefas, embora pudesse fazer isso usando props (input, output) e centralizando a lógica no ```app.component.ts```.
+
+2. Que parte você achou mais difícil ou travou?
+
+A parte que eu travei foi quando fui usar o módulo ```ReactiveFormsModule```, pois não conhecia as suas funcionalidades e também travei quando fui fazer a parte das subtarefas que eu não sabia se reaproveitava o modelo das tarefas ou fazia um outro, que no caso criei um outro modelo.
+
+3. O que faria diferente se tivesse mais tempo?
+
+Eu faria um calendário para visualizar melhor as tarefas, uma opção para trocar a visualização das tarefas, por exemplo, uma visualização completa e mínima e mudaria a interface em relação aos botões de criar as tarefas, pois não escalam bem quando se tem muitas tarefas.
+
+4. O que faria diferente se fosse para um cliente real?
+
+Eu perguntaria se ele teria alguma preferência sobre o design, caso não tenha, provavelmente faria do mesmo modo e adicionaria mais funcionalidades para melhorar a experiência do usuário.
+
+5. Você usou alguma ferramenta ou inteligência artificial para ajudar? Como?
+
+Utilizei o GitHub Copilot do VSCode para gerar e prever o código, sempre supervisionando e modificando quando necessário e utilizei também o ChatGPT para me auxiliar e também a escolher as bibliotecas utilizadas, por exemplo, a biblioteca para fazer o DragAndDrop que facilitou muito o processo.
