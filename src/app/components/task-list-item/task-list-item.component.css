@@ -1,3 +1,19 @@
+.task {
+  position: relative;
+}
+
+.task.cdk-drag-placeholder {
+  opacity: 0.5;
+}
+
+.drag-handle {
+  position: absolute;
+  right: 100%;
+  margin-right: 10px;
+  font-size: 24px;
+  cursor: grab;
+}
+
 .task-content {
   padding: 4px 8px;
   border: 1px solid black;

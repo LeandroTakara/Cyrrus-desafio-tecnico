@@ -1,15 +1,16 @@
 import { Component, computed, inject, input } from '@angular/core';
 import { SubTask, Task } from '../../types/task';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faXmark, faCheck, faTrash, faCalendarXmark } from '@fortawesome/free-solid-svg-icons';
+import { faXmark, faCheck, faTrash, faCalendarXmark, faGripVertical } from '@fortawesome/free-solid-svg-icons';
 import { TaskService } from '../../services/task.service';
 import { SubtaskItemComponent } from '../subtask-item/subtask-item.component';
 import { CreateSubtaskComponent } from '../create-subtask/create-subtask.component';
 import { CommonModule } from '@angular/common';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-task-list-item',
-  imports: [FontAwesomeModule, SubtaskItemComponent, CreateSubtaskComponent, CommonModule],
+  imports: [FontAwesomeModule, SubtaskItemComponent, CreateSubtaskComponent, CommonModule, DragDropModule],
   templateUrl: './task-list-item.component.html',
   styleUrl: './task-list-item.component.css'
 })
@@ -22,6 +23,7 @@ export class TaskListItemComponent {
   faCheck = faCheck;
   faTrash = faTrash;
   faCalendarXmark = faCalendarXmark;
+  faGripVertical = faGripVertical;
 
   priority = computed(() => {
     if (this.task().priority === 'low') return 'Baixa';

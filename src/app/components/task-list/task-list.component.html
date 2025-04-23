@@ -2,9 +2,9 @@
   @if (filteredTasks.length === 0) {
     <div class="no-tasks">Sem tarefas</div>
   } @else {
-    <ul class="task-list">
+    <ul class="task-list" cdkDropList (cdkDropListDropped)="dropTask($event)">
       @for (task of filteredTasks; track $index) {
-        <app-task-list-item [task]="task"></app-task-list-item>
+        <app-task-list-item [task]="task" />
       }
     </ul>
   }

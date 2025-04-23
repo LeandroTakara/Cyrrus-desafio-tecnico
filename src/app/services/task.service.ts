@@ -20,6 +20,11 @@ export class TaskService {
     return this.tasks;
   }
 
+  reorder(fromIndex: number, toIndex: number) {
+    [this.tasks[fromIndex], this.tasks[toIndex]] = [this.tasks[toIndex], this.tasks[fromIndex]];
+    this.#saveTasks();
+  }
+
   addTask(task: Task) {
     this.tasks.push(task);
     this.#saveTasks();
